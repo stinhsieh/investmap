@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>單元 3 AI 產業投資地圖｜從金融市場到 AI 產業的投資地圖</title>
+<meta name="description" content="未來的錢往哪去：WEF 未來五年趨勢、AI 是不是泡沫、四個關鍵力（算力/電力/運力/存力）、AI 產業鏈分工地圖、訓練vs推論與ASIC、CPO與第三代半導體、機器人元年、台灣經濟現況與台股估值，附名詞速查表。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+/* 深藍金主題——改配色只改這裡的 :root（見 themes.md） */
+:root{--bg:#f7f4ee;--ink:#2b3244;--muted:#6b7280;--card:#fff;--line:#e5e0d5;--hero-bg:#1a2332;--hero-ink:#fff;--accent:#e3b23c;--accent-ink:#1a2332;--serif:'Noto Serif TC',serif;--sans:'Noto Sans TC',sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.85;font-size:17px}
+img{max-width:100%}a{color:inherit}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px}
+.topnav{position:sticky;top:0;z-index:50;background:var(--hero-bg);color:var(--hero-ink)}
+.topnav .row{display:flex;gap:6px;overflow-x:auto;padding:8px 14px;-webkit-overflow-scrolling:touch}
+.topnav .row.r2{background:rgba(255,255,255,.06);font-size:14px}
+.topnav a{white-space:nowrap;padding:5px 11px;border-radius:8px;text-decoration:none;font-weight:500;font-size:14px;color:var(--hero-ink);opacity:.75}
+.topnav a:hover{opacity:1;background:rgba(255,255,255,.1)}
+.topnav a.on{background:var(--accent);color:var(--accent-ink);opacity:1;font-weight:700}
+.hero{background:var(--hero-bg);color:var(--hero-ink);padding:46px 0 40px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-60px;top:-40px;width:280px;height:280px;background:var(--accent);opacity:.12;border-radius:50%;filter:blur(10px)}
+.tag{display:inline-block;border:1px solid var(--accent);color:var(--accent);border-radius:20px;padding:4px 16px;font-size:13px;font-weight:700;letter-spacing:1px}
+.hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(30px,6vw,50px);line-height:1.25;margin:18px 0 14px;position:relative}
+.hero h1 .hl{color:var(--accent);background:none}
+.hero .sub{font-size:clamp(15px,2.4vw,19px);opacity:.9;margin:0;position:relative}
+.quote{border-left:4px solid var(--accent);background:rgba(255,255,255,.05);padding:16px 20px;margin:26px 0 22px;font-size:clamp(15px,2.3vw,18px);border-radius:0 10px 10px 0;position:relative}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;position:relative}
+.btn{display:inline-block;padding:12px 22px;border-radius:10px;text-decoration:none;font-weight:700;font-size:15px}
+.btn-fill{background:var(--accent);color:var(--accent-ink)}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.4);color:var(--hero-ink)}
+.meta{margin-top:22px;font-size:13px;opacity:.7;line-height:1.7;position:relative}
+section{padding:40px 0;border-bottom:1px solid var(--line)}
+.chap-head{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.chap-num{font-family:var(--serif);font-weight:900;font-size:34px;color:var(--accent);line-height:1}
+h2{font-size:clamp(21px,3.4vw,28px);margin:0;font-weight:900}
+h3{font-size:19px;margin:26px 0 8px;font-weight:700}
+.lead{color:var(--muted);margin:4px 0 18px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;border-top:3px solid var(--accent)}
+.stat .n{font-family:var(--serif);font-weight:900;font-size:24px;color:var(--hero-bg)}
+.stat .l{font-size:13px;color:var(--muted);margin-top:4px;line-height:1.5}
+ul,ol{padding-left:22px}li{margin:6px 0}
+.box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:16px 0}
+.box.warn{border-left:4px solid var(--accent)}
+.box.big{border-left:5px solid var(--accent);background:linear-gradient(180deg,rgba(227,178,60,.08),var(--card))}
+.step{counter-reset:s;list-style:none;padding:0}
+.step li{position:relative;padding-left:40px;margin:12px 0}
+.step li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;width:26px;height:26px;background:var(--accent);color:var(--accent-ink);border-radius:50%;text-align:center;line-height:26px;font-weight:700;font-size:14px}
+.tablewrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px}
+th,td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+th{background:var(--hero-bg);color:var(--hero-ink)}
+.hl{background:linear-gradient(transparent 60%,var(--accent) 60%);font-weight:700}
+.todo{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:8px 0;cursor:pointer}
+.todo input{margin-top:4px;width:18px;height:18px;flex:none;accent-color:var(--accent)}
+.prog{display:inline-block;background:var(--accent);color:var(--accent-ink);border-radius:20px;padding:3px 14px;font-weight:700;font-size:14px}
+.fab{position:fixed;right:16px;bottom:16px;background:var(--accent);color:var(--accent-ink);padding:11px 18px;border-radius:30px;text-decoration:none;font-weight:700;font-size:14px;box-shadow:0 6px 20px rgba(0,0,0,.25);z-index:60}
+footer{padding:30px 0 90px;color:var(--muted);font-size:13px;text-align:center;line-height:1.8}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <div class="row">
+    <a href="../">≡ 總覽</a>
+    <a href="../unit1/">1 金融基礎</a>
+    <a href="../unit2/">2 投資實戰</a>
+    <a href="../unit3/" class="on">3 AI 產業</a>
+  </div>
+  <div class="row r2">
+    <a href="#top00">一頁看懂</a>
+    <a href="#top01">01 未來趨勢</a>
+    <a href="#top02">02 AI 產業鏈</a>
+    <a href="#top03">03 機器人</a>
+    <a href="#top04">04 台股估值</a>
+    <a href="#glossary">名詞速查</a>
+    <a href="#todo">行動清單</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="tag">單元 3・AI 產業</span>
+    <h1>AI 產業投資地圖:<br><span class="hl">未來的錢往哪去</span></h1>
+    <p class="sub">從電力、產業鏈、機器人，一路算到「台股到底貴不貴」</p>
+    <div class="quote">「AI 發展的瓶頸，已經不再是記憶體、也不是 GPU，而是<strong>電力</strong>。」</div>
+    <div class="cta">
+      <a class="btn btn-fill" href="#top01">從第一章開始 →</a>
+      <a class="btn btn-ghost" href="#todo">直接看行動清單 →</a>
+    </div>
+    <div class="meta">資料依據：課堂逐字稿 ＋ WEF/機構觀點整理　·　內容最後更新：2026/09/06</div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="top00">
+    <div class="chap-head"><span class="chap-num">00</span><h2>一頁看懂</h2></div>
+    <div class="stats">
+      <div class="stat"><div class="n">5~8 兆</div><div class="l">美元・2030 前<br>投入 AI 資料中心的規模</div></div>
+      <div class="stat"><div class="n">4 個力</div><div class="l">AI 發展關鍵<br>算力・電力・運力・存力</div></div>
+      <div class="stat"><div class="n">2026</div><div class="l">機器人元年<br>下一個十年主戰場</div></div>
+      <div class="stat"><div class="n">約 23 倍</div><div class="l">台股本益比<br>4500 點時，講者認為合理</div></div>
+    </div>
+    <div class="box"><strong>三句話講完這個單元：</strong><ul>
+      <li>AI <span class="hl">至少未來三、四年不是泡沫</span>；真正的瓶頸已不是 GPU/記憶體，而是「電力」。</li>
+      <li>現在～2028 吃「<span class="hl">AI 硬體</span>」（台灣是受益者）；2028 之後走向實體機器人＋代理機器人（大陸最強）。</li>
+      <li>台股在 4500 點、本益比約 23 倍是合理的，獲利還可能被低估——<span class="hl">相信台灣</span>，佈局 AI 硬體／電力／機器人三大主流。</li>
+    </ul></div>
+  </section>
+
+  <section id="top01">
+    <div class="chap-head"><span class="chap-num">01</span><h2>未來五年的趨勢(WEF 觀點)</h2></div>
+    <p class="lead">講者引用世界經濟論壇（WEF），並對照親訪瑞士銀行總部、東京研究機構的觀點——兩邊講的驚人一致。</p>
+    <div class="tablewrap"><table>
+      <tr><th>趨勢領域</th><th>重點內容</th></tr>
+      <tr><td>電力與電網</td><td>全世界最缺的就是「電」；AI 生產與晶片製造耗電極大</td></tr>
+      <tr><td>鋰電池提取</td><td>與分散式能源相關的直接提鋰技術</td></tr>
+      <tr><td>輻射冷卻</td><td>空調耗電巨大，改用輻射冷卻材質散熱</td></tr>
+      <tr><td>永久化學物銷毀</td><td>分解自然界無法分解的物質</td></tr>
+      <tr><td>精準醫療 / 外泌體</td><td>個人化癌症治療：未來驗一次就能量身合成藥物</td></tr>
+      <tr><td>AI 世界模型</td><td>AI 應用到實體世界（如機器人），即 Physical AI</td></tr>
+      <tr><td>後量子密碼學</td><td>抵禦量子電腦破解的關鍵技術</td></tr>
+    </table></div>
+
+    <h3>一、電力:AI 發展的真正瓶頸</h3>
+    <p>講者反覆強調，AI 發展的瓶頸「<span class="hl">已經不再是記憶體，也不是 GPU</span>」，而是電力。他引《造山者》紀錄片：台積電未來用電量可能高達「全台用電的八成」。所以「未來蓋工廠，第一件事不是找地，是先問有沒有電」。他也舉例：某資料中心公司以約 14.5 億買下一家「微電網/發電」公司——代表 AI 產業已開始往上游電力「垂直整合」。</p>
+
+    <h3>二、後量子密碼學:金融業的最大威脅</h3>
+    <p>這是拜訪瑞銀與東京機構時，雙方都提到的兩大急迫課題之一（另一個是 AI/世界模型）。核心威脅：現在許多駭客「<span class="hl">先把加密資料存起來</span>」，等量子電腦問世後一次全部解開——現行所有密碼學在量子電腦前都會失效。解方是「後量子密碼學」（如 Lattice-based 格密碼學）。兩邊機構預估時間點都是 <strong>2030 年左右</strong>。</p>
+
+    <h3>三、量子模擬與 AI 模擬</h3>
+    <p>約「十分之九的藥物研發會失敗」，未來可透過 <strong>AI 模擬物理環境</strong>做預算與驗證，加上量子運算更快，將大幅加速研發——爆發時間也都指向 2030 年。</p>
+  </section>
+
+  <section id="top02">
+    <div class="chap-head"><span class="chap-num">02</span><h2>AI 產業鏈與投資主流</h2></div>
+    <p class="lead">先回答「是不是泡沫」，再攤開整條產業鏈誰是贏家。</p>
+
+    <h3>一、AI 是不是泡沫?</h3>
+    <p>立場很明確：<span class="hl">至少未來三、四年不是泡沫</span>，而且現在談泡沫「太早了」。網路泡沫是 1995~2000 年間發生的；如果現在（大家還在投資階段）就喊泡沫，等於「別人投資到六、七成時你就喊泡沫」。他認為每次有人喊 AI 泡沫，常是想叫你便宜賣股票的時候。</p>
+    <div class="box warn">但他承認一個真實風險：<strong>AI 的債務供給會非常龐大</strong>。AI 資料中心投資規模巨大（2030 年前預估 5~8 兆美元），龐大發債供給會衝擊債券市場——這正是「升息環境不要買債券」的另一個原因。<br>用供需理解：AI 大量發債（供給增加）→ 債券價格下跌 → 殖利率上升。</div>
+    <div class="box"><strong>美國國債的警訊</strong>：美國債務約每 3~4 秒跳動 10 萬美元；債務佔 GDP 比例 1960 年代約 50%、1980 年代約 34%、2000 年約 56%、現在約 <span class="hl">122%</span>，財政赤字龐大「補不回來」。這是很多人不敢買美債的原因，再疊加 AI 龐大發債需求，整個市場「太缺錢了」。</div>
+
+    <h3>二、AI 普及速度:不可能是泡沫</h3>
+    <p>用「達到 5000 萬用戶所需時間」對比：汽車、電話各花數十年；Facebook 約 4 年；ChatGPT/AI 應用更快。講者親身體會：AI 工具「用過就回不去了」。犀利觀察——未來 AI 會貴到「當它取代一個人五成到七成薪水」的程度，但你還是得用，因為它能 24 小時工作。所以「趁今年 AI 還便宜，趕快去學」。</p>
+
+    <h3>三、AI 發展的四個關鍵「力」</h3>
+    <div class="tablewrap"><table>
+      <tr><th>關鍵力</th><th>對應環節 / 代表</th></tr>
+      <tr><td>算力</td><td>GPU（NVIDIA）、晶片運算能力</td></tr>
+      <tr><td>電力</td><td>電網、能源（AI 的邊界與瓶頸）</td></tr>
+      <tr><td>運力</td><td>GPU 之間的傳輸速度（如 CPO、光通訊）</td></tr>
+      <tr><td>存力</td><td>記憶體、HBM（高頻寬記憶體）</td></tr>
+    </table></div>
+
+    <h3>四、AI 產業鏈的分工地圖</h3>
+    <div class="tablewrap"><table>
+      <tr><th>產業鏈環節</th><th>主要贏家 / 說明</th></tr>
+      <tr><td>AI 模型（演算法）</td><td>美國與中國大陸最強（大陸能力約達美國 92~95%）</td></tr>
+      <tr><td>核心晶片 GPU</td><td>NVIDIA；AMD/Intel 偏 CPU</td></tr>
+      <tr><td>晶圓代工</td><td>台積電（台灣天下）</td></tr>
+      <tr><td>先進製程 / 封裝</td><td>台灣（如日月光，先進封裝越來越重要）</td></tr>
+      <tr><td>伺服器</td><td>鴻海等（近期表現亮眼）</td></tr>
+      <tr><td>散熱 / 冷卻</td><td>台灣廠商（如奇鋐、雙鴻等）</td></tr>
+      <tr><td>記憶體 HBM</td><td>韓國（SK 海力士、三星）</td></tr>
+      <tr><td>電力 / 電網</td><td>台達電、華城、中興電等</td></tr>
+    </table></div>
+    <p>國家層級分工：美國以模型、GPU、雲端為主；台灣負責先進製程、設計、封裝、伺服器；韓國主攻 HBM 與記憶體；日本是關鍵技術與精密儀器——這就是「非紅供應鏈」。台灣經濟這麼好，正因「原本在大陸做的產能全部搬回台灣」。</p>
+
+    <h3>五、訓練 vs 推論:ASIC 的崛起</h3>
+    <ul>
+      <li><strong>訓練（Training）</strong>：模型訓練需要昂貴的 GPU 做高速運算。</li>
+      <li><strong>推論（Inference）</strong>：模型訓練好後，丟進問題、直接得到答案，不需這麼高階的 GPU。</li>
+    </ul>
+    <p>因此市場出現 <span class="hl">ASIC</span>（客製化晶片，如 TPU）來做推論，像聯發科、世芯-KY 在吃這塊。判斷：未來「使用端都是在做推論」，GPU 與 ASIC 都會越來越重要。</p>
+
+    <h3>六、先進封裝與散熱</h3>
+    <p>以前晶片成本集中在「前段」；現在把一大堆晶片封裝在一起後，封裝與測試的重要性大幅上升（一片出錯整個報廢）。這就是日月光、京元電飆漲的原因（去年封測股本益比才約 10 倍、非常便宜）。</p>
+
+    <h3>七、CPO 與第三代半導體</h3>
+    <p>「運力」環節，光通訊從可插拔光模組 → 未來的 LPO/CPO（共同封裝光學）。以大立光為例：自從它拒絕 Apple、宣示做 CPO，股價從約 2000~3000 元飆到約 8000 元（本益比從約 10~15 倍翻到約 40 倍），是「整個估值的翻轉」——即使 CPO 業務都還沒真正做出來。</p>
+    <div class="box">「第三代半導體」（碳化矽 SiC、氮化鎵 GaN）近期大漲（如環球晶、中美晶），原因與電力有關：
+      <ul>
+        <li>AI 機房電壓要從 48~54V 提高到 <span class="hl">800V</span>（低電流、高功率），解決高電流問題；</li>
+        <li>高壓環境會有突波/崩潰問題，須用第三代半導體（碳化矽耐高溫、氮化鎵快速度）克服；</li>
+        <li>巧的是這正好是「電動車」既有的 800V 技術，台灣早有布局、可無縫接軌——這是台灣的利基。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="top03">
+    <div class="chap-head"><span class="chap-num">03</span><h2>機器人:下一個十年的主戰場</h2></div>
+    <p class="lead">AI 硬體之後的下一棒，是走進實體世界的機器人。</p>
+
+    <h3>一、2026 是「機器人元年」</h3>
+    <p>講者原本認為 2025 是「台灣 AI 元年」、機器人要到 2035 才成熟；但越來越多資料把 <span class="hl">2026 定義為「機器人元年」</span>，而且會推進得很快，尤其中國大陸非常強。</p>
+
+    <h3>二、AI 發展的兩階段</h3>
+    <ul>
+      <li><strong>第一階段（現在～約 2028）：AI 硬體。</strong>我們現在吃的都是「AI 硬體」，台灣在 AI 基礎建設中，兩三年內不用害怕。</li>
+      <li><strong>第二階段（約 2028 之後）：實體機器人 + 代理機器人（Agentic AI）。</strong>講者示範自己養了「五個 AI Agent」——每天固定時間自動回報美股/黃金/台股收盤與台灣 AI 條件，一個約 20 美金、五個就像養了五個碩博士級分析師。</li>
+    </ul>
+
+    <h3>三、Physical AI 與電動車的關係</h3>
+    <p>實體 AI（Physical AI）的崛起，是「視覺 + 語言 + 行動」的結合；機器人與電動車共用同一套資料（3D 場景、世界模型）。這解釋特斯拉策略：電動車可以不太賺錢，重點是「吃數據」、為機器人布局；FSD 已從「買斷」改「訂閱」持續收現金流。市場數據：機器人市場到 2030 年可能成長約 69%；特斯拉 Optimus 已部署到自家工廠，重量降到約 57 公斤，反應速度約 60 毫秒、幾乎即時互動。</p>
+
+    <h3>四、感測器與高端市場</h3>
+    <p>機器人最重要的是「收訊/感測的傳導」。感測器市場到 2030 年前每年約 21% 成長，且技術與自駕車高度重疊。講者認為台灣廠商在高端感測市場（如 CIS 相關）應有機會。</p>
+
+    <h3>五、大陸在機器人的優勢</h3>
+    <ul>
+      <li>大陸極重視「應用端」（產業鏈最前是模型、最後是機器人，大陸兩端都強）；</li>
+      <li>全世界最便宜的晶片、電動車供應鏈都在大陸；華為系統能力與國際大廠差距不大；</li>
+      <li>大陸第 15 個五年計劃兩大主軸就是「<span class="hl">AI Plus + 儲能/綠能</span>」，傾全國之力。</li>
+    </ul>
+    <p>大陸呈「兩極化」：傳統產業、房地產超級差（負成長），但 AI 與儲能綠能都是二、三十以上的成長。也出現「機器狗」（不到一萬塊）、「抽卡師」等新現象——大陸第一季微電影約 95% 是 AI 生成，催生了「抽卡師」這個新職業。</p>
+
+    <h3>六、鴻海:被低估的機器人潛力股</h3>
+    <div class="box"><strong>案例｜鴻海</strong>：在眾多機器人相關股「都太貴」下，講者認為鴻海最有機會（有點被低估）：本益比約 18 倍、股價約 65，明後年 EPS 預估可到約 29；而目前估值「<span class="hl">還沒把機器人算進去</span>」，若未來真做機器人，想像空間更大。他個人在約 250 元的位置。</div>
+  </section>
+
+  <section id="top04">
+    <div class="chap-head"><span class="chap-num">04</span><h2>台灣經濟現況與台股估值</h2></div>
+    <p class="lead">全課收尾：用數據回答「台股現在到底貴不貴」。</p>
+
+    <h3>一、台灣經濟的即時體檢</h3>
+    <div class="tablewrap"><table>
+      <tr><th>指標</th><th>數據</th></tr>
+      <tr><td>外銷訂單</td><td>創「歷史新高」，已連續約 18 個月成長</td></tr>
+      <tr><td>工業生產指數</td><td>成長約 22%</td></tr>
+      <tr><td>GDP 成長率</td><td>第二季約 12.92%，全年上修至約 11%</td></tr>
+      <tr><td>金融機構放款投資</td><td>增加約 8.8%（金融股跟著成長）</td></tr>
+      <tr><td>固定資本形成</td><td>成長約 16%（資本投資環境）</td></tr>
+      <tr><td>PPI（生產者物價）</td><td>上漲約 16.94%（很嚴重）</td></tr>
+      <tr><td>CPI（消費者物價）</td><td>約 2.3~2.5%，核心已高於無風險利率</td></tr>
+    </table></div>
+    <p>關鍵解讀：外銷訂單是「景氣領先指標」，好訂單「全部集中在資訊電子」，源頭來自美國 AI 資本支出。M1B 偏活水、M2 偏定存；<span class="hl">M1B 大於 M2</span> 代表很多錢從定存跑出來（多半為了投資股票），正是台灣現在的情況。</p>
+
+    <h3>二、台灣為什麼可能升息?</h3>
+    <div class="tablewrap"><table>
+      <tr><th>央行責任</th><th>台灣現況</th><th>推論</th></tr>
+      <tr><td>穩定物價</td><td>PPI 高達約 16.94%、核心 CPI 已高於利率</td><td>→ 該升息</td></tr>
+      <tr><td>經濟成長（與就業掛鉤）</td><td>景氣過熱、GDP 成長約 11%</td><td>→ 該升息</td></tr>
+      <tr><td>金融穩定</td><td>資金大量湧入</td><td>—</td></tr>
+    </table></div>
+    <p>兩個責任的結論都指向升息。判斷：台灣「已具備升息的環境」、實質利率為負，彭博也認為台灣最早可能近期就會升息；唯一變數是「敢不敢在選前升息」。</p>
+
+    <h3>三、台股到底貴不貴?用數據算給你看</h3>
+    <p>三大機構（富邦、群益、Morgan Stanley）對台灣企業獲利的預測約 6.55~6.83 兆；用「真實數據」驗證：光上半年台灣獲利就已達約 3.966 兆——全年 6.83 兆的預估「其實還是低估」。</p>
+    <div class="box big">台股總市值約 <strong>157 兆</strong>（指數約 4500 點時）　÷　全年獲利約 <strong>6.83 兆</strong>　＝　本益比約 <span class="hl">23 倍</span></div>
+    <p>結論：台股在 4500 點、本益比約 23 倍是「合理」的，獲利數字還可能被低估，所以「不要嫌台股太高」。再用富邦金對明年的預估（獲利成長約 28%）推算：若獲利成長 1.28 倍、指數不變，本益比會降到約 <strong>18 倍</strong>——「明年不用太悲觀」。</p>
+
+    <h3>四、前五大權值股就決定了一半台股</h3>
+    <p>台股前五大的市值就佔約 <span class="hl">53%</span>（超過一半），而它們未來獲利成長沒有一檔低於 25%——所以台股整體獲利成長空間可能不只 25%。個股長期估值指引（講者引用的預估，僅供參考）：</p>
+    <ul>
+      <li><strong>台積電</strong>：2030 年 EPS 預估可到約 213（今年約 107），等於「double」。</li>
+      <li><strong>聯發科</strong>：2030 年若賺到約 279，現在本益比其實不到 20 倍。</li>
+      <li><strong>鴻海</strong>：講者認為「算蠻委屈的」（被低估）。</li>
+    </ul>
+    <div class="box big"><strong>全課總結：相信台灣。</strong>長期投資、選優質標的、把賺到的錢再投入，善用被動型 ETF 的低成本優勢；在升息環境避開長天期債券；並及早佈局 <span class="hl">AI 硬體、電力、機器人</span>這三大未來主流。</div>
+  </section>
+
+  <section id="glossary">
+    <div class="chap-head"><span class="chap-num">📖</span><h2>附錄:名詞速查表</h2></div>
+    <p class="lead">忘了某個詞？回來這裡掃一眼。</p>
+    <div class="tablewrap"><table>
+      <tr><th>名詞</th><th>白話解釋</th></tr>
+      <tr><td>直接金融</td><td>投資人直接把錢給企業（股票、債券），金融機構只是輔助</td></tr>
+      <tr><td>間接金融</td><td>透過銀行居中，把錢收進來再借出去</td></tr>
+      <tr><td>IPO</td><td>初次公開發行，企業從私有走向上市的過程</td></tr>
+      <tr><td>貨幣市場</td><td>一年以內到期的工具（商業本票、貨幣市場基金）</td></tr>
+      <tr><td>資本市場</td><td>一年以上或無到期日的工具（股票、債券）</td></tr>
+      <tr><td>求償順位</td><td>公司清算時拿回錢的順序：債券＞特別股＞普通股</td></tr>
+      <tr><td>可轉債</td><td>平時領固定利息、公司好時可轉成股票的債券</td></tr>
+      <tr><td>私募</td><td>凡不在公開市場做的股權或債權交易</td></tr>
+      <tr><td>市值加權</td><td>依市值決定權重，一買定江山、幾乎不用再調整</td></tr>
+      <tr><td>溢價/折價</td><td>ETF 市價高於/低於淨值</td></tr>
+      <tr><td>複利</td><td>把賺到的錢再投入，錢滾錢</td></tr>
+      <tr><td>有效年利率</td><td>(1+期間利率)^總期數−1，用來比較不同計息方式</td></tr>
+      <tr><td>實質利率</td><td>名目利率−通膨率，考慮通膨後的真實利率</td></tr>
+      <tr><td>CPI / PCE / PPI</td><td>消費者 / 個人消費支出 / 生產者 物價指數</td></tr>
+      <tr><td>72 法則</td><td>72÷年化報酬率(%)≈翻倍所需年數</td></tr>
+      <tr><td>HBM</td><td>高頻寬記憶體，AI 的關鍵「存力」（韓國主導）</td></tr>
+      <tr><td>訓練 vs 推論</td><td>訓練需高階 GPU；推論可用較便宜的 ASIC</td></tr>
+      <tr><td>CPO</td><td>共同封裝光學，提升「運力」（如大立光）</td></tr>
+      <tr><td>第三代半導體</td><td>碳化矽/氮化鎵，耐高壓，用於 800V 高壓機房</td></tr>
+      <tr><td>後量子密碼學</td><td>抵禦量子電腦破解的加密技術（約 2030 上路）</td></tr>
+      <tr><td>Physical AI</td><td>AI 進入實體世界，結合機器人（視覺＋語言＋行動）</td></tr>
+    </table></div>
+  </section>
+
+  <section id="todo">
+    <div class="chap-head"><span class="chap-num">✓</span><h2>行動清單</h2></div>
+    <p class="lead">勾了會自動記住進度（存在你這台裝置）。目前完成 <span class="prog" id="prog">0 / 0</span></p>
+    <label class="todo"><input type="checkbox" data-k="t1"><span>投資選未來主流，優先看「<strong>AI 硬體、電力/電網、機器人</strong>」三大方向。</span></label>
+    <label class="todo"><input type="checkbox" data-k="t2"><span>記住 AI <strong>四個力（算力/電力/運力/存力）</strong>，看新聞對得上是哪一塊。</span></label>
+    <label class="todo"><input type="checkbox" data-k="t3"><span>別急著喊 AI 泡沫——先問「<strong>現在是投資到幾成的階段</strong>」。</span></label>
+    <label class="todo"><input type="checkbox" data-k="t4"><span>升息＋AI 大量發債的環境，<strong>避開長天期債券</strong>（呼應單元 2）。</span></label>
+    <label class="todo"><input type="checkbox" data-k="t5"><span>關注「<strong>電力/電網</strong>」投資機會（台灣看台達電/華城/中興電，美股看電網投資）。</span></label>
+    <label class="todo"><input type="checkbox" data-k="t6"><span>留意「<strong>訓練→推論</strong>」轉折，關注 ASIC（聯發科、世芯）與先進封測（日月光、京元電）。</span></label>
+    <label class="todo"><input type="checkbox" data-k="t7"><span>把「<strong>機器人元年 2026</strong>」放進雷達，長期觀察人形機器人與感測器。</span></label>
+    <label class="todo"><input type="checkbox" data-k="t8"><span>用「<strong>本益比＝市值÷獲利</strong>」自己驗證台股貴不貴，別被「指數新高」嚇到。</span></label>
+    <label class="todo"><input type="checkbox" data-k="t9"><span>挑個股時把「<strong>2030 年 EPS 預估</strong>」納入判斷（如台積電/聯發科/鴻海）。</span></label>
+    <label class="todo"><input type="checkbox" data-k="t10"><span>建立「<strong>相信台灣、長期佈局非紅供應鏈</strong>」的主軸，別被短期波動甩下車。</span></label>
+  </section>
+
+  <section id="done">
+    <div class="chap-head"><span class="chap-num">★</span><h2>三個單元都讀完了</h2></div>
+    <p>從「錢從哪裡來」到「未來的錢往哪去」，這張投資地圖到此完整。回總覽看看三單元的進度，或回頭複習任一章。</p>
+    <div class="cta"><a class="btn btn-fill" href="../">回總覽看進度 →</a><a class="btn btn-ghost" href="../unit1/">回單元 1 複習</a></div>
+  </section>
+
+  <footer>
+    資料來源：課堂逐字稿 ＋ AI 整理閱讀版（完整重點對標、不濃縮）　·　內容最後更新：2026/09/06<br>
+    數據為講者課堂引用之口述數字，投資請自行查證、審慎評估；本手冊僅供學習，非投資建議。
+  </footer>
+</main>
+
+<a class="fab" href="../">≡ 回總覽</a>
+
+<script>
+(function(){
+  var P='im-ai1-todo-';
+  var b=document.querySelectorAll('.todo input'),p=document.getElementById('prog');
+  function u(){var d=0;b.forEach(function(x){if(x.checked)d++});if(p)p.textContent=d+' / '+b.length;}
+  b.forEach(function(x){
+    try{if(localStorage.getItem(P+x.dataset.k)==='1')x.checked=true;}catch(e){}
+    x.addEventListener('change',function(){try{localStorage.setItem(P+x.dataset.k,x.checked?'1':'0');}catch(e){}u();});
+  });
+  u();
+})();
+</script>
+</body>
+</html>
